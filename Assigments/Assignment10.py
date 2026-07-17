@@ -1,0 +1,88 @@
+#18/06/2026 – File Handling
+
+#Question 1
+#Create a file named student.txt and write your name into it.
+#->
+# Writing a name to student.txt
+with open("student.txt", "w") as file:
+    file.write("siddhi marne\n")
+
+print("File created and name written successfully.")
+
+
+#Question 2
+#Read data from student.txt.
+
+#->
+# Reading the entire file
+with open("student.txt", "r") as file:
+    content = file.read()
+    print("File Content:")
+    print(content)
+
+
+
+
+#Question 3
+#Append your city name to the file.
+
+#->
+# Appending text to the file
+
+# Appending text to the file
+with open("student.txt", "a") as file:
+    file.write("India\n")
+
+print("City name appended successfully.")
+
+
+
+
+#Question 4
+#Read the file using readline().
+
+
+#->
+# Reading the file line by line
+with open("student.txt", "r") as file:
+    line1 = file.readline()  # Reads the first line (Name)
+    line2 = file.readline()  # Reads the second line (City)
+    print(line1)
+    print(line2)
+
+
+
+
+#Question 5
+#Check whether a file exists or not.
+#->
+import os
+
+filename = "student.txt"
+
+# Checking for file existence
+if os.path.exists(filename):
+    print(f"Yes, the file '{filename}' exists.")
+else:
+    print(f"No, the file '{filename}' does not exist.")
+
+
+
+#Question 6
+#Create a program to store 5 student names in a file and display them.
+
+#->
+filename = "student.txt"
+students_to_add = ["siddhi", "riya", "ishwari", "aarvi", "pradnya"]
+
+# 1. Writing 
+with open(filename, "w") as file:
+    for name in students_to_add:
+        file.write(name + "\n")
+print("5 names have been stored.\n")
+
+#  Reading and displaying 
+print("Displaying students from file:")
+with open(filename, "r") as file:
+    for line in file:
+        print("-", line.strip())
